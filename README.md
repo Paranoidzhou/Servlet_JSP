@@ -1,3 +1,10 @@
 # Servlet_JSP
-Servlet_JSP day01:
-今天主要讲述了什么是Servlet,Tomcat的安装与配置,Servlet是如何运行的.以及一些常见的错误代码(404,405,500)的解释.编写了一个HelloWrod的小Demo
+- Servlet_JSP day01:
+  		今天主要讲了什么是Servlet,Tomcat的安装与配置,Servlet是如何运行的.以及一些常见的错误代码(404,405,500)的解释.并且写了一个用Servlet运行的HelloWrod的小Demo
+
+- Servlet_JSP day02:
+		今天主要讲了Http协议,其通信过程(一次请求,一次连接).以及数据包的结构(分析请求行,消息头,实体内容)
+		然后讲了两种请求方式:
+		GET请求:地址栏可见,安全性不高.
+		POST请求:地址栏不可见,安全性相对高.
+		以及如何获取请求参数值,并且解决了Servlet输出中文时产生的乱码问题,以及传输过程中的编码解码声明类型不一样会导致的乱码问题.

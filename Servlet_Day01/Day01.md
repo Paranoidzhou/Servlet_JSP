@@ -4,6 +4,7 @@
 1. 用来扩展web服务器功能 :
 	- web服务器只能处理静态资源的请求(即需要事先将html文件准备好,并存放到制定的文件夹下面),不能够处理动态资源的请求(即需要计算,生成动态页面),所以需要扩展其功能.
 	- Servlet可以扩展web服务器功能,当web服务器收到请求之后,如果需要计算,可以调用Servlet来处理.
+![](servlet.png)
 
 2. 组件规范 :
 	- 什么是组件?
@@ -19,6 +20,12 @@
 		1.先下载Tomcat安装文件.并将安装文件放在XX盘.
 		2.打开Ecplise -> Window -> Preferences -> Server -> Server Runtime Environments -> Add -> Apache 选择Tomcat版本,并且勾选 Create a new local server-> next 找到安装目录 -> finish
 		3.Window -> show view -> Servers -> 双击配置好的 Tomcat -> Server Locations 选择 Use Tomcat installation (takes control of Tomcat installation)
+![](s1.png)
+![](s2.png)
+![](s3.png)
+![](s4.png)
+![](s5.png)
+![](s6.png)
 
 - 如何写一个Servlet?
 	step1 : 写一个JAVA类,实现Servlet接口或者继承HttpServlet抽象类
@@ -44,6 +51,37 @@
 
 - 当访问量大,高并发时,使用专业的web server服务器,如果日常使用,访问量不大,Tomcat可以满足需求.
 
+# 使用eclipse开发需要注意的事项
+![](g1.png)
+![](g2.png)
+![](g3.png)
+![](g4.png)
+
+# 参考代码
+	public class HelloServlet extends HttpServlet{
+	@Override
+	/**
+	 * Servlet容器收到请求之后,会调用Servlet的service方法来处理请求. 
+	 * 注:
+	 *   容器会实现创建好request(请求)和response(响应),其中request
+	 * 对象封装了请求数据包里面的所有数据,我们可以将处理结果写到response  
+	 * 对象里面,然后容器负责从response对象中获取处理结果,然后打包发送给
+	 * 服务器.
+	 */
+	protected void service(HttpServletRequest request,HttpServletResponse response)throws ServletException, IOException {
+
+		response.setContentType("text/html");   //设置 content-type消息头,告诉浏览器,服务器返回的数据类型
+		PrintWriter out = response.getWriter(); //通过response对象获得输出流.
+		/**
+		 * 实际上是把数据写到了响应对象里面,还没有发出去;
+		 * 注:
+		 *   Servlet容器会将response对象上存放的数据取出来,打一个包(数据响应包),然后发送给浏览器.
+		 */
+		out.println("<h1>Hello World,Hello Servlet</h1>");
+		out.close();   //此行不写也可以,它通过响应对象获得,如果没有调用out.close,则容器会自动关闭out.
+	}
+}
+
 ## Servlet是如何运行的?
 - 比如在浏览器地址栏输入:  http://ip:port/ServletDay01/hello
 	step1 : 浏览器依据ip,port与Tomcat建立连接.
@@ -59,6 +97,7 @@
 	step5 : Tomcat会从response对象中获取处理结果,然后打包发送给浏览器.
 
 	step6 :浏览器解析响应数据包，生成页面．
+![](servlet2.png)
 
 ## 常见问题:
 - 404问题
@@ -82,3 +121,12 @@
 			  (配置文件内的两个类名不一致会导致错误)
 
 > 任何一个网络服务端都需要一个端口用来监听
+
+# tcp/ip抓包工具(了解即可，不用掌握)
+![](t1.png)
+![](t2.png)
+![](t3.png)
+![](t4.png)
+![](t5.png)
+![](t6.png)
+![](t7.png)

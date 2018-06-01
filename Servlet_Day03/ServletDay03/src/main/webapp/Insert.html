@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<!-- <meta http-equiv="content=type" content="text/html;charset=utf-8">
+	 模拟content-type 消息头,告诉浏览器解析的数据类型和编码.
+	 等价于HTML5的meta写法:↓↓↓
+ -->
+<meta charset="UTF-8">
+
+<title>用户登录</title>
+</head>
+<body style="font-size:30px">
+	<form action="Insert" method="POST">
+		<fieldset style="width:300px;">
+			<legend>用户登录</legend>
+			 账号:<input type="text" name="username" /><br/>
+			 密码:<input type="password" name="password" /><br/>
+			 邮箱:<input type="text" name="email"/><br/>
+			 电话:<input type="text" name="phone"/><br/>
+			 <input type="submit" value="提交" /><input  type="button" value="查询用户列表" onClick="window.location.href='http://localhost:8080/ServletDay03/Select'"/>
+		</fieldset>
+	</form>
+</body>
+</html>

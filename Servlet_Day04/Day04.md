@@ -35,6 +35,7 @@
 			注: include指令
 				file属性:指定要包含的文件名.
 				-> 容器在将jsp转换成servlet时,会将file属性指定的文件的内容插入到该指令所在的位置.
+![](pageEncoding.png)
 
 ## Jsp是如何运行的?
 - 阶段一 : 容器将 .jsp 文件转换成一个 .java 文件.

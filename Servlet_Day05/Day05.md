@@ -6,6 +6,7 @@
 	  注:
 	  	a.web组件值得是Jsp或者servlet
 		  b.常见的常见是一个servlet获取处理结果之后,转交给一个Jsp来展现.
+![](forward.png)
 
 ## 如何转发.
 - step1: 绑定数据到request对象上

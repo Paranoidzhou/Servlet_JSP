@@ -40,6 +40,13 @@
 			值为null:	   ${ empty null}
 			找不到对应的值： ${ empty abc}
 
+- 读取请求参数值 (e2.jsp)
+	${param.username}
+	等价于
+		request.getParameter("username");
+	${paramValues.interest}
+	等价于
+		request.getParameterValues("interest");
 
 ## jstl
 - jstl是什么？
@@ -71,15 +78,18 @@
 		  a.当test属性值为true的时候，容器会执行标签体的内容。
 		  b.test属性值可以使用el表达式来赋值。
 		  c.var属性指定绑定名，scope属性值指定绑定的范围。
+![](a1.png)
 
 - choose 标签 (e4.jsp)
-	  语法：
+	  a.语法：
 	  	  <c:choose>
 		  	<c:when test="">标签体</c:when>
 			<c:when test="">标签体</c:when>
 			...
   			<c:otherwise>当不满足上面条件时，会执行此标签内容</c:otherwise>
 	  	  </c:choose>
+	  b.when可以出现1次或者多次，表示一个分支；otherwise可以出现0次或者1次，表示例外。
+	  c.当test属性值为true时，执行标签体的内容，可以使用el表达式来给该属性赋值。
 
 - forEach标签 ： 遍历集合或者数组 （e5.jsp）
 	  语法：
@@ -87,7 +97,7 @@
 		 </c:forEach>
 		 注：
 		 	items属性用来指定要遍历的集合或者数组，可以使用el表达式来赋值。
-			var属性用来指定绑定名，其绑定范围固定是pageContext.该标签每次从集合或者数组中取一个元素，然后将钙元素绑定到pageContext上。
+			var属性用来指定绑定名，其绑定范围固定是pageContext.该标签每次从集合或者数组中取一个元素，然后将该元素绑定到pageContext上。
 			varStatus属性用来指定绑定名，其绑定范围固定是pageContext.绑定值是一个特殊的对象，该对象提供了几个方法用来获得当前遍历的状态：
 			-》 getIndex(): 获得当前正在被遍历的元素的下标（从0开始）;
 			-》 getCount(): 获得当前是第几次遍历（从1开始）;
